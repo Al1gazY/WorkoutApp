@@ -26,6 +26,9 @@ final class TabBar: UITabBarController{
     }
     
     private func configure(){
+        
+        //TabBar Customization
+        
         tabBar.tintColor = Resources.Colors.active
         tabBar.barTintColor = Resources.Colors.inactive
         tabBar.backgroundColor = .white
@@ -34,15 +37,21 @@ final class TabBar: UITabBarController{
         tabBar.layer.borderWidth = 1
         tabBar.layer.masksToBounds = true
         
-        let overviewController = UIViewController()
-        let sessionController = UIViewController()
-        let progressController = UIViewController()
-        let settingsController = UIViewController()
+        //Setting ViewControllers
         
-        let overviewNavigation = UINavigationController(rootViewController: overviewController)
-        let sessionNavigation = UINavigationController(rootViewController: sessionController)
-        let progressNavigation = UINavigationController(rootViewController: progressController)
-        let settingsNavigation = UINavigationController(rootViewController: settingsController)
+        let overviewController = OverviewVC()
+        let sessionController = SessionVC()
+        let progressController = ProgressVC()
+        let settingsController = SettingsVC()
+        
+        //Setting NavigationBars
+        
+        let overviewNavigation = NavBar(rootViewController: overviewController)
+        let sessionNavigation = NavBar(rootViewController: sessionController)
+        let progressNavigation = NavBar(rootViewController: progressController)
+        let settingsNavigation = NavBar(rootViewController: settingsController)
+        
+        //TabBar Items
         
         overviewNavigation.tabBarItem = UITabBarItem(title: Resources.Strings.TabBar.overview,
                                                      image: Resources.Images.TabBar.overview,
@@ -56,7 +65,7 @@ final class TabBar: UITabBarController{
         settingsNavigation.tabBarItem = UITabBarItem(title: Resources.Strings.TabBar.settings,
                                                      image: Resources.Images.TabBar.settings,
                                                      tag: Tabs.settings.rawValue)
-
+        
         setViewControllers([
             overviewNavigation, sessionNavigation, progressNavigation, settingsNavigation
         ],
