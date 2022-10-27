@@ -17,6 +17,8 @@ class BaseVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addViews()
+        layoutViews()
         configures()
     }
     
@@ -27,13 +29,9 @@ class BaseVC: UIViewController{
 
 @objc extension BaseVC{
     
-    func addViews(){
-        
-    }
+    func addViews(){}
     
-    func layoutViews(){
-        
-    }
+    func layoutViews(){}
     
     func configures(){
         view.backgroundColor = Resources.Colors.background

@@ -11,7 +11,8 @@ class SettingsVC: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Settings"
+        title = Resources.Strings.NavBar.settings
+        
     }
 
 
