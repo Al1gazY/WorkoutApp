@@ -9,6 +9,8 @@ import UIKit
 
 final class SecondaryButton: UIButton{
     
+    //Initializaing Items
+    
     private let label = UILabel()
     private let iconView = UIImageView()
     
@@ -32,8 +34,8 @@ final class SecondaryButton: UIButton{
 private extension SecondaryButton{
     
     func addViews(){
-        addSubview(label)
-        addSubview(iconView)
+        addView(label)
+        addView(iconView)
     }
     
     //Constraints
@@ -55,16 +57,14 @@ private extension SecondaryButton{
     
     func configures(){
         
-        backgroundColor = Resources.Colors.secodary
+        backgroundColor = Resources.Colors.secondary
         layer.cornerRadius = 14
         makeSystem(self) //Animation
         
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Resources.Colors.active
         label.font = Resources.Fonts.helveticaRegular(with: 15)
         label.textAlignment = .center
         
-        iconView.translatesAutoresizingMaskIntoConstraints = false
         iconView.image = Resources.Images.Common.downArrow?.withRenderingMode(.alwaysTemplate) //For repainting Color
         iconView.tintColor = Resources.Colors.active
     }
